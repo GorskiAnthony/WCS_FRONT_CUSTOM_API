@@ -3,7 +3,7 @@ import axios from "axios";
 
 const App = () => {
 	const API = "http://localhost:5500/api/users";
-  
+
 	const [trainers, setTrainers] = useState([]);
 	const fetchData = () => {
 		fetch(API)
@@ -54,7 +54,7 @@ const App = () => {
 	};
 
 	const handleDelete = (id) => {
-		console.log(`Attention, l'utilisateur ${id} va être supprimé`);
+		axios.delete(`${API}/${id}`).then(() => fetchData());
 	};
 
 	return (
